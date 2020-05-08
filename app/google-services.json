@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "634391852599",
+    "firebase_url": "https://marsplayimageupload.firebaseio.com",
+    "project_id": "marsplayimageupload",
+    "storage_bucket": "marsplayimageupload.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634391852599:android:3f100613c99823b0f2b1b2",
+        "android_client_info": {
+          "package_name": "com.mp.marsplayimageupload"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634391852599-o97km4h0pcl6c2suosb25qi7efgrujr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe9CChlyM-hOy96ksnlf35NvebclnyuPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634391852599-o97km4h0pcl6c2suosb25qi7efgrujr0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
