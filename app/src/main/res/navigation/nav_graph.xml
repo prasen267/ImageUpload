@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_displayFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/actionDisplayToPermission"
+            app:destination="@id/permissions_fragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"

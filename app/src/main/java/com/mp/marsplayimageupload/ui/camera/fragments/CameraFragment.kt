@@ -146,14 +146,7 @@ class CameraFragment : Fragment() {
             // Bind use cases
             bindCameraUseCases()
 
-            // In the background, load latest photo taken (if any) for gallery thumbnail
-           /* lifecycleScope.launch(Dispatchers.IO) {
-                outputDirectory.listFiles { file ->
-                    EXTENSION_WHITELIST.contains(file.extension.toUpperCase(Locale.ROOT))
-                }?.max()?.let {
-                    setGalleryThumbnail(it)
-                }
-            }*/
+
         }
 
         val scaleGestureDetector = ScaleGestureDetector(context, listener)
@@ -216,22 +209,7 @@ class CameraFragment : Fragment() {
                 .setTargetRotation(rotation)
                 .build()
 
-        /*    // ImageAnalysis
-            imageAnalyzer = ImageAnalysis.Builder()
-                // We request aspect ratio but no resolution
-                .setTargetAspectRatio(screenAspectRatio)
-                // Set initial target rotation, we will have to call this again if rotation changes
-                // during the lifecycle of this use case
-                .setTargetRotation(rotation)
-                .build()
-                // The analyzer can then be assigned to the instance
-                .also {
-                    it.setAnalyzer(mainExecutor, LuminosityAnalyzer { luma ->
-                        // Values returned from our analyzer are passed to the attached listener
-                        // We log image analysis results here - you should do something useful instead!
-                        Log.d(TAG, "Average luminosity: $luma")
-                    })
-                }*/
+
 
             // Must unbind the use-cases before rebinding them.
             cameraProvider.unbindAll()
@@ -338,15 +316,7 @@ class CameraFragment : Fragment() {
             bindCameraUseCases()
         }
 
-        controls.findViewById<ImageButton>(R.id.photo_view_button).setOnClickListener {
-           if(camera!!.cameraInfo.torchState.value==TorchState.OFF) {
-              // camera?.cameraControl?.enableTorch(true)
-           }
-            else
-           {
-             //  camera?.cameraControl?.enablef(false)
-           }
-        }
+
 
 
         controls.findViewById<SeekBar>(R.id.zoomSeekBar).setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {

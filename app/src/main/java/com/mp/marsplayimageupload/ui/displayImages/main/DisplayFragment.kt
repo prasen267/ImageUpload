@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.mp.marsplayimageupload.R
 import com.mp.marsplayimageupload.data.listeners.FetchDataListener
+import com.mp.marsplayimageupload.ui.camera.fragments.CameraFragmentDirections
+import com.mp.marsplayimageupload.ui.camera.fragments.PermissionsFragment
 import com.mp.marsplayimageupload.ui.displayImages.shared.SharedViewModel
 import com.mp.marsplayimageupload.ui.displayImages.shared.SharedViewModelFactory
 import kotlinx.android.synthetic.main.display_fragment.*
@@ -91,6 +93,14 @@ class DisplayFragment : Fragment(), DisplayRecyclerAdapter.DisplayItemListener, 
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (!PermissionsFragment.hasPermissions(requireContext())) {
+            Navigation.findNavController(requireActivity(), R.id.nav_host).navigate(
+                DisplayFragmentDirections.actionDisplayToPermission()
+            )
+        }
+    }
     override fun fetchFailed() {
 
     }
