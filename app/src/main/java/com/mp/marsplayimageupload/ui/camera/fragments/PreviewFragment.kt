@@ -3,10 +3,12 @@ package com.mp.marsplayimageupload.ui.camera.fragments
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -29,16 +31,16 @@ class PreviewFragment : Fragment(), KodeinAware, uploadListener {
     private val factory by instance<SharedViewModelFactory>()
     private lateinit var viewModel: SharedViewModel
     private lateinit var update_textview:TextView
-    //private  lateinit var progressBar: Progressbar
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
-       // val view = inflater.inflate(R.layout.fragment_preview, container, false)
+
         val binding:FragmentPreviewBinding=DataBindingUtil.inflate(inflater,R.layout.fragment_preview,container,false)
         val view:View=binding.root
+        (requireActivity()).title="Upload Image"
         viewModel =
             ViewModelProviders.of(requireActivity(), factory).get(SharedViewModel::class.java)
         update_textview=view.findViewById(R.id.update_textview)
@@ -60,11 +62,7 @@ class PreviewFragment : Fragment(), KodeinAware, uploadListener {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        // progressBar= ProgressBar(requireContext())
 
-    }
 
     override fun uploadStarted() {
         progress_bar.post { progress_bar.visibility = View.VISIBLE }

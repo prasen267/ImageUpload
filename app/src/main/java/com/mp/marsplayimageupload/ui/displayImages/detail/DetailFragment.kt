@@ -44,6 +44,7 @@ class DetailFragment : Fragment(),KodeinAware {
         val view:View=binding.root
         viewModel =
             ViewModelProviders.of(requireActivity(), factory).get(SharedViewModel::class.java)
+        (requireActivity()).title="Preview"
         binding.image=viewModel.selectedImage.value
         binding.lifecycleOwner=requireActivity()
         return view

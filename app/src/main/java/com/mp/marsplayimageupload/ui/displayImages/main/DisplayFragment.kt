@@ -39,6 +39,7 @@ class DisplayFragment : Fragment(), DisplayRecyclerAdapter.DisplayItemListener, 
         val view = inflater.inflate(R.layout.display_fragment, container, false)
         viewModel =
             ViewModelProviders.of(requireActivity(), factory).get(SharedViewModel::class.java)
+        (requireActivity()).title="Marsplay Image Upload"
         progress_bar_display=view.findViewById(R.id.progress_bar_display)
         recyclerView = view.findViewById(R.id.recyclerView)
         swipeLayout = view.findViewById(R.id.swipeLayout)
